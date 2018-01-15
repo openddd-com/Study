@@ -1,0 +1,3 @@
+# case1:将私有的repo的master分支与公有的repo的master分支进行双向同步，支持主要发行版本与社区的分享，接受,PR
+
+#case2:将私有的repor的特定分支与公有repor的master分支进行双向同步，支持特定发行版本与社区的分享，接受PRde内部经过
