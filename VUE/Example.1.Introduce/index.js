@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        message: 'Hello Vue! https://cn.vuejs.org'
     }
 })
 var app2 = new Vue({
