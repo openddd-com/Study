@@ -1,0 +1,8 @@
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\obj\Debug\netstandard2.0\mylibrary.csproj.CoreCompileInputs.cache
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\obj\Debug\netstandard2.0\mylibrary.AssemblyInfoInputs.cache
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\obj\Debug\netstandard2.0\mylibrary.AssemblyInfo.cs
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\bin\Debug\netstandard2.0\mylibrary.deps.json
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\bin\Debug\netstandard2.0\mylibrary.dll
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\bin\Debug\netstandard2.0\mylibrary.pdb
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\obj\Debug\netstandard2.0\mylibrary.dll
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\mylibrary\obj\Debug\netstandard2.0\mylibrary.pdb

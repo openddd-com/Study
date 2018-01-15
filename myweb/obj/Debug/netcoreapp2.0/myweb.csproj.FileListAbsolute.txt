@@ -1,0 +1,12 @@
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\myweb.deps.json
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\myweb.runtimeconfig.json
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\myweb.runtimeconfig.dev.json
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\myweb.dll
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\myweb.pdb
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\mylibrary.dll
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\bin\Debug\netcoreapp2.0\mylibrary.pdb
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\obj\Debug\netcoreapp2.0\myweb.csproj.CoreCompileInputs.cache
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\obj\Debug\netcoreapp2.0\myweb.AssemblyInfoInputs.cache
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\obj\Debug\netcoreapp2.0\myweb.AssemblyInfo.cs
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\obj\Debug\netcoreapp2.0\myweb.dll
+C:\WorkPlace\GitHub\taylor-openddd-com\Study\myweb\obj\Debug\netcoreapp2.0\myweb.pdb

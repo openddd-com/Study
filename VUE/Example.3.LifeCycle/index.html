@@ -1,0 +1,10 @@
+<div id="app">
+    LifeCycle
+    <p>{{ foo }}</p>
+    <!-- 这里的 `obj.foo` 不会更新！ -->
+    <input v-model="foo">
+    <br>
+    <button @click="foo = 'baz'">Change it</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>
