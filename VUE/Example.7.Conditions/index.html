@@ -1,0 +1,58 @@
+<div id="app">
+    <!--把一个template元素当做不可见的包裹元素
+    如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
+    当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级
+    -->
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+    <!--条件渲染-->
+    <h1 v-if="ok">Yes1</h1>
+    <h1 v-if="ok">Yes2</h1>
+    <h1 v-else>No1</h1>
+    <h1 v-else>No2</h1>
+
+    <div v-if="Math.random() > 0.5">
+        Now you see me
+    </div>
+    <!--v-else 元素必须紧跟在带 v-if 或者 v-else-if,2.1.0 新增的元素的后面，否则它将不会被识别。-->
+    <div v-else>
+        Now you don't
+    </div>
+    <!--元素会被高效地复用，因为它们没有添加 key 属性-->
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+    <br>
+    <!--用 key后 这两个元素是完全独立的，不会复用它们，每次切换重新渲染，<label> 元素仍然会被高效地复用-->
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <br>
+    <button v-on:click="loginType === 'username'?loginType='':loginType='username'">Toggle loginType</button>
+    <!--v-show 的元素始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS 属性 display
+        注意，v-show 不支持 <template> 元素，也不支持 v-else,
+        不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
+    -->
+    <h1 v-show="ok">Hello!</h1>
+</div>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+<!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>

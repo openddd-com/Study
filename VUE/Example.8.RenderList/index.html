@@ -1,0 +1,55 @@
+<div id="app">
+    <!--v-for在遍历对象时，是按Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下是一致的。
+    -->
+    <ul id="example-1">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+    <div v-for="item of items">{{ item.message }}</div>
+
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+    <div v-for="(value, key) in object">
+        {{ key }}: {{ value }}
+    </div>
+    <div v-for="(value, key, index) in object">
+        {{ index }}. {{ key }}: {{ value }}
+    </div>
+    
+    <div v-for="item in items">
+            <!-- 内容 -->
+            {{ item.message }}
+        </div>
+    <!--默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出,
+        加key使它能跟踪每个节点的身份，从而重用和重新排序现有元素-->    
+    <div v-for="item in items" :key="item.id">
+        <!-- 内容 -->
+        {{ item.message }}
+    </div>
+    <!-- 数组更新检测
+    push() //vm.items.push({ message: 'Baz' })
+    pop()
+    shift()
+    unshift()
+    splice()
+    sort()
+    reverse()
+
+    vm.items = vm.items.filter(function (item) { return item.message.match(/Foo/)})
+
+    -->
+
+
+</div>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+<!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>

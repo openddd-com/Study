@@ -1,5 +1,6 @@
 <div id="app">
    LifeCycle
+   <!--文本-->
    <p>{{ foo }}</p>
    <span v-once>这个将不会改变: {{ foo }}</span>
    <br>
@@ -7,9 +8,58 @@
     <input v-model="foo" />
     <br>
     <button @click="foo = 'baz'">Change it</button>
+
+    <!--Html-->
     <p>Using mustaches: {{ rawHtml }}</p>
     <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 
+    <!--特性-->
+    <p><div v-bind:id="dynamicId">dynamicId</div></p>
+    <p><button v-bind:disabled="isButtonDisabled">Button</button></p>
+
+    <!-- JavaScript 表达式-->
+    <p><div v-bind:id="'list-' + dynamicId">{{dynamicId+1}}</div></p>
+    <p><div>{{dynamicId+1>1?'Yes':'No'}}</div></p>
+    <p><div>{{ "mess age".split('').reverse().join('') }}</div></p>   
+
+    <!-- 这是语句，不是表达式 -->
+    <!-- <p><div>{{ var a = 1;return a; }}</div></p> -->
+
+    <!-- 流控制也不会生效，请使用三元表达式 -->
+    <!-- <p><div>{{ if (true) { return "message" } }}</div></p> -->
+
+    <!--但是事件可以 -->
+    <p><div>{{ function(){var a = 1;return a;}() }}</div></p>
+
+
+    <!--指令 v-前缀的特殊属性 -->
+    <p v-if="seen">现在你看到我了</p>
+
+    <!--参数 -->
+    <a v-bind:href="url">url...</a>
+<br>
+    <a v-on:click="doSomething">doSomething...</a>
+    <br>
+    <!--don`t how to call -->
+    <!-- <a v-on:click="customfunc">customfunc...</a> -->
+
+
+    <!--修饰符 (Modifiers)  是以半角句号 . 指明的特殊后缀,用于指出一个指令应该以特殊方式绑定-->
+        <!-- .prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()-->
+        <form v-on:submit.prevent="onSubmit">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+    <!--缩写 -->
+        <!-- 完整语法 -->
+        <a v-bind:href="url">...</a>
+        <!-- 缩写 -->
+        <a :href="url">...</a>
+
+        <!-- 完整语法 -->
+        <a v-on:click="doSomething">...</a>
+        <!-- 缩写 -->
+        <a @click="doSomething">...</a>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="index.js"></script>

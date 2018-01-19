@@ -1,0 +1,40 @@
+<div id="app">
+
+    <!--对象语法-->
+
+    <!--active 这个 class 存在与否将取决于数据属性 isActive 的 truthiness-->
+    <div v-bind:class="{ active: isActive }">a</div>
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+        b
+    </div>
+    <div v-bind:class="classObject">c</div>
+    <div v-bind:class="classObjectComputed">d</div>
+
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">h</div>
+    <div v-bind:style="styleObject">i</div>
+
+    <!--数组语法-->
+    <div v-bind:class="[activeClass, errorClass]">e</div>
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]">f</div>
+    <div v-bind:class="[{ active: isActive }, errorClass]">g</div>
+    <!--v-bind:style 使用需要添加浏览器引擎前缀的 CSS 属性时，如 transform，Vue.js 会自动侦测并添加相应的前缀。-->
+    <div v-bind:style="[baseStyles, overridingStyles]">j</div>
+    <!--从 2.3.0 起你可以为 style 绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值
+    这样写只会渲染数组中最后一个被浏览器支持的值。
+    在本例中，如果浏览器支持不带浏览器前缀的 flexbox，那么就只会渲染 display: flex
+    -->
+    <div :style="{display: ['-webkit-box', '-ms-flexbox', 'flex'] }">k</div>
+
+    <!--组件语法-->
+    <my-component class="baz boo"></my-component>
+    <my-component v-bind:class="{ active: isActive }"></my-component>
+
+</div>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+<!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>

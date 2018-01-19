@@ -3,7 +3,17 @@ new Vue({
     data: {
         now: new Date(),
         foo: 'bar',
-        rawHtml: "<span style='color:red'>This should be red</span>"//绝不要对用户提供的内容使用插值
+        rawHtml: "<span style='color:red'>This should be red</span>",//绝不要对用户提供的内容使用插值
+        dynamicId:1,
+        isButtonDisabled:false,
+        seen:true,
+        url:'index.html',
+        doSomething:function(){
+            console.log('doSomething: ' + new Date())
+        },
+        onSubmit:function(){
+            console.log('onSubmit: ' + new Date())
+        },
     },
     //Init Events&Lifecycle,then
 
@@ -43,5 +53,10 @@ new Vue({
     //Teardown watchers,child components and event listeners
     destroyed: function () {
         console.log('destroyed: ' + this.now)
+    },
+    //don`t know how to call?
+    customfunc:function()
+    {
+        console.log('customfunc: ' +new date())
     }
 })
