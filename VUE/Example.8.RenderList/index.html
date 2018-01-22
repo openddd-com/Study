@@ -19,33 +19,57 @@
     <div v-for="(value, key, index) in object">
         {{ index }}. {{ key }}: {{ value }}
     </div>
-    
+
     <div v-for="item in items">
-            <!-- 内容 -->
-            {{ item.message }}
-        </div>
+        <!-- 内容 -->
+        {{ item.message }}
+    </div>
     <!--默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出,
-        加key使它能跟踪每个节点的身份，从而重用和重新排序现有元素-->    
+        加key使它能跟踪每个节点的身份，从而重用和重新排序现有元素-->
     <div v-for="item in items" :key="item.id">
         <!-- 内容 -->
         {{ item.message }}
     </div>
-    <!-- 数组更新检测
-    push() //vm.items.push({ message: 'Baz' })
-    pop()
-    shift()
-    unshift()
-    splice()
-    sort()
-    reverse()
-
-    vm.items = vm.items.filter(function (item) { return item.message.match(/Foo/)})
-
-    -->
-
-
 </div>
+<br>
+<div>App1</div>
+<div id="app1">
+    <li v-for="n in evenNumbers">{{ n }}</li>
+    <br>
+    <li v-for="n in even(numbers)">{{ n }}</li>
+    <br>
+    <!--v-for 也可以取整数-->
+    <li v-for="n in 10">{{ n }}</li>
+    <!--可以利用带有 v-for 的 <template> 渲染多个元素-->
+    <ul>
+        <template v-for="item in items">
+            <li>{{ item.msg }}</li>
+            <li class="divider"></li>
+        </template>
+    </ul>
+    <!--v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。-->
+    <li v-for="todo in todos" v-if="!todo.isComplete">
+        {{ todo }}
+    </li>
+    <!--而如果你的目的是有条件地跳过循环的执行，那么可以将 v-if 置于外层元素 (或 <template>)上-->
+    <ul v-if="todos.length">
+        <li v-for="todo in todos">
+            {{ todo }}
+        </li>
+    </ul>
+    <p v-else>No todos left!</p>
+</div>
+<!--2.2.0+ 的版本里，当在组件中使用 v-for 时，key 现在是必须的。
+        然而，任何数据都不会被自动传递到组件里，因为组件有自己独立的作用域。-->
 
+<!--为了把迭代数据传递到组件里，我们要用 props-->
+<!-- <my-component v-for="(item, index) in items" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></my-component> -->
+<div id="todo-list-example">
+    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+    <ul>
+        <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+    </ul>
+</div>
 <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
 <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>

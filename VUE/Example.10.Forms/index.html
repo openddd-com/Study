@@ -1,0 +1,110 @@
+<!--表单输入绑定-->
+<div id="example-1">
+    <p>Message is: {{ message }}</p>
+    <input v-model="message" placeholder="edit me">
+
+    <br>
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <br>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+    <br>
+
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+</div>
+<div id='example-2'>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+
+</div>
+<div id="example-4">
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+</div>
+<div id="example-5">
+    <select v-model="selected">
+        <option disabled value="">请选择</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="example-6">
+    <select v-model="selected" multiple style="width: 50px;">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <br>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="example-3">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+        </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="example-8">
+    <!--v-model 绑定的值通常是静态字符串-->
+    <!-- 当选中时，`picked` 为字符串 "a" -->
+    <input type="radio" v-model="picked" value="a">
+
+    <!-- `toggle` 为 true 或 false -->
+    <input type="checkbox" v-model="toggle">
+
+    <!-- 当选中时，`selected` 为字符串 "abc" -->
+    <select v-model="selected">
+        <option value="abc">ABC</option>
+    </select>
+    <!--想把值绑定到 Vue 实例的一个动态属性上，这时可以用 v-bind 实现-->
+
+    <!--// 当选中时 vm.toggle === 'yes' // 当没有选中时 vm.toggle === 'no'-->
+    <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+    <!--这里的 true-value 和 false-value 特性并不会影响输入控件的 value 特性，
+        因为浏览器在提交表单时并不会包含未被选中的复选框。
+        如果要确保表单中这两个值中的一个能够被提交，(比如“yes”或“no”)，请换用单选按钮-->
+
+    <!--// 当选中时 vm.pick === vm.a-->
+    <input type="radio" v-model="pick" v-bind:value="a">
+
+    <!--// 当选中时
+        typeof vm.selected // => 'object'
+        vm.selected.number // => 123
+    -->
+    <select v-model="selected">
+        <!-- 内联对象字面量 -->
+        <option v-bind:value="{ number: 123 }">123</option>
+    </select>
+    <!--在默认情况下，
+        v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。
+        你可以添加 lazy 修饰符，从而转变为使用 change 事件进行同步-->
+    <!-- 在“change”时而非“input”时更新 -->
+    <input v-model.lazy="msg">
+    <!--如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符-->
+    <input v-model.number="age" type="number">
+    <!--如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符-->
+    <input v-model.trim="msg">
+</div>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+<!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>
