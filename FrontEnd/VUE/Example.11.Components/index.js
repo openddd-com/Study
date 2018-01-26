@@ -35,7 +35,8 @@ var rightTemplate = {
 //JavaScript 内联模板字符串
 //.vue 组件
 
-//data 必须是函数
+//各种选项大多数都可以在组件里使用，
+//但data 必须是函数
 var errorTemplate = Vue.component('my-component3', {
     template: '<span>{{ message }}</span>',
     data: {
@@ -55,3 +56,27 @@ Vue.component('simple-counter', {
 new Vue({
     el: '#example-3'
 });
+//组件组合: prop 向下传递数据，事件向上传递消息
+Vue.component('child', {
+    // 声明 props
+    props: ['message'],
+    // 就像 data 一样，prop 也可以在模板中使用
+    // 同样也可以在 vm 实例中通过 this.message 来使用
+    template: '<span>{{ message }}</span>'
+})
+new Vue({
+    el: '#example-4'
+});
+//camelCase vs. kebab-case
+Vue.component('child2', {
+    // 在 JavaScript 中使用 camelCase
+    props: ['myMessage'],
+    template: '<span>{{ myMessage }}</span>'
+})
+new Vue({
+    el: '#example-5',
+    data: {
+        parentMsg: "Hello parents"
+    }
+});
+

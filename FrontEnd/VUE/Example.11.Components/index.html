@@ -10,6 +10,18 @@
     <simple-counter></simple-counter>
     <simple-counter></simple-counter>
 </div>
+
+<div id="example-4">
+    <child message="hello!"></child>
+</div>
+
+<div id="example-5">
+    <!-- 在 HTML 中使用 kebab-case,如果你使用字符串模板，则没有这些限制。-->
+    <child2 my-message="hello!"></child2>
+    <br>
+    <!--动态 Prop-->
+    <child2 v-bind:my-message="parentMsg"></child2>
+</div>
 <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
 <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
